@@ -3,6 +3,7 @@ Find the top 10 companies for posting jobs
 They must have >3000 job postings
 Limit this only to US jobs
 */
+EXPLAIN ANALYZE
 SELECT
     cd.name AS company_name,
     COUNT(jpf.*) AS postings_count
@@ -13,4 +14,4 @@ WHERE jpf.job_location = 'US'
 GROUP BY cd.name
 HAVING COUNT(jpf.*) > 3000
 ORDER BY COUNT(jpf.*) DESC
-LIMIT 10
+LIMIT 10;
